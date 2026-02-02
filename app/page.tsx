@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowBigRight, Briefcase, CheckCircle2, TrendingUp } from "lucide-react";
 import ImageTabs from "@/components/image-tabs";
-
 import Link from "next/link";
 
 
