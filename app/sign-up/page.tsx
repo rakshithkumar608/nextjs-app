@@ -107,7 +107,8 @@ export default function SignUp() {
                             {loading ? "Signing Up..." : "Sign Up"}
                         </Button>
 
-                        <p className="text-center text-sm text-gray-600">Already have an account?{" "} <Link 
+                        <p className="text-center text-sm text-gray-600">Already have an account?{" "} 
+                        <Link 
                         className="font-medium text-primary hover:underline"
                         href="/sign-in">Sign In</Link></p>
                     </CardFooter>

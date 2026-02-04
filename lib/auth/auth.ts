@@ -3,6 +3,7 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient, Db } from "mongodb";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { initializeUserBoard } from "../init-user-board";
 
 // Cache the MongoDB client connection for Next.js hot reloads
 const globalForMongo = globalThis as unknown as {
@@ -42,6 +43,18 @@ export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
     },
+    databaseHooks: {
+        user: {
+            create: {
+                after: async ( user ) => {
+
+                    if (user.id) {
+                        await initializeUserBoard(user.id);
+                    }
+                }
+            }
+        }
+    }
 });
 
 export async function getSession() {
